@@ -6,11 +6,12 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = @doctor.appointment.new
+    @users = User.all - @doctor.users
+    @appointment = @doctor.appointments.new
   end
 
   def create
-    @appointment = @doctor.appointment.new(appointment_params)
+    @appointment = @doctor.appointments.new(appointment_params)
 
     if @appointment.save
       redirect_to doctor_appointments_path(@doctor)
@@ -27,7 +28,7 @@ class AppointmentsController < ApplicationController
 
   private
     def set_doctor
-      @appointment = Doctor.find(params[:doctor_id])
+      @doctor = Doctor.find(params[:doctor_id])
     end
 
     def appointment_params
