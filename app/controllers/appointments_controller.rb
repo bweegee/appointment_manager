@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :set_doctor
 
   def index
-    # @users = @doctor.appointments
+    @users = @doctor.appointments
   end
 
   def new
