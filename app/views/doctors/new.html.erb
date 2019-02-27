@@ -1,2 +1,14 @@
-<h1>Doctors#new</h1>
-<p>Find me in app/views/doctors/new.html.erb</p>
+<h1>Add a Doctor</h1>
+<%= form_with(model: @doctor, local: true, class: "") do |f| %>
+  <div class="">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, required: true, placeholder: "First Name" %>
+  </div>
+  
+  <div class="">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, required: true, placeholder: "First Name" %>
+  </div>
+
+  <%= f.submit nil, class: "" %>
+<% end %>  
