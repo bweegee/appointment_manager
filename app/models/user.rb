@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :appointments
+  has_many :appointment, dependent: :destroy
   has_many :doctors, through: :appointments
 
   def full_name
